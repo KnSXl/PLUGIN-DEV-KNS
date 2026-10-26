@@ -1,0 +1,19 @@
+{
+  "name": "dev-kns",
+  "version": "0.3.0",
+  "description": "Desenvolvedor front-end sênior, especializado em refatoração e formatação de códigos.",
+  "author": {
+    "name": "Kauã Nascimento da Silva",
+    "email": "kauasilva2861@gmail.com"
+  },
+  "skills": "./skills",
+  "interface": {
+    "displayName": "Dev KNS",
+    "shortDescription": "Desenvolvedor front-end sênior, especializado em refatoração e formatação de códigos.",
+    "longDescription": "Desenvolvedor front-end sênior, especializado em refatoração e formatação de códigos.",
+    "developerName": "Kauã Nascimento da Silva",
+    "category": "Productivity",
+    "capabilities": ["Interactive"],
+    "defaultPrompt": "Iniciar."
+  }
+}
