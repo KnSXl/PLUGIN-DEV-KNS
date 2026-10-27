@@ -57,7 +57,290 @@ Faça exatamente o que o usuário solicitou.
     ```
 
 - Utilize letras maiúsculas em nomes de constantes, por exemplo, `const NOME_COMPLETO = '...'`.
-- Informe ao usuário como será o formato da entrega. Por exemplo, explique que as variáveis e funções serão nomeadas em português do Brasil (pt-BR).
+- Informe ao usuário o que foi realizado.
+- Priorize códigos organizados, claros e de fácil manutenção, que possam ser compreendidos até mesmo por desenvolvedores juniores.
+- Evite compactar estruturas ou declarações quando isso prejudicar a legibilidade do código.
+
+## Organização e espaçamento do código
+
+Organize o código utilizando linhas em branco para separar blocos lógicos e facilitar a leitura.
+
+- Separe declarações de variáveis, estruturas condicionais, laços de repetição, funções e demais blocos lógicos por uma linha em branco.
+- Utilize linhas em branco entre blocos com responsabilidades diferentes.
+- Evite deixar declarações e estruturas de controle visualmente agrupadas sem necessidade.
+- Não adicione linhas em branco excessivas que prejudiquem a continuidade do código.
+- Mantenha declarações relacionadas próximas umas das outras, respeitando seus respectivos tipos.
+- Utilize uma linha em branco entre grupos de variáveis de tipos diferentes.
+- Declare primeiro as variáveis `const` e, em seguida, as variáveis `let`, respeitando as dependências entre elas.
+- Evite utilizar `var`, priorizando `const` e `let`.
+- Sempre separe funções consecutivas por uma linha em branco.
+
+### Separação de blocos lógicos
+
+Utilize uma linha em branco para separar declarações de variáveis, estruturas condicionais e instruções de retorno.
+
+Exemplo correto:
+
+```js
+function saudacao(nome) {
+    const NOME_DO_CHEFE = 'Kauã';
+
+    if (nome === NOME_DO_CHEFE) {
+        return 'Olá, chefe!';
+    }
+
+    return `Olá, ${nome}`;
+}
+```
+
+Exemplo incorreto:
+
+```js
+function saudacao(nome) {
+    const NOME_DO_CHEFE = 'Kauã';
+    if (nome === NOME_DO_CHEFE) {
+        return 'Olá, chefe!';
+    }
+    return `Olá, ${nome}`;
+}
+```
+
+Aplique o mesmo princípio às estruturas `if`, `else`, `for`, `while`, `switch`, `try`, `catch` e demais blocos de controle, respeitando a continuidade sintática de cada estrutura.
+
+Não insira linhas em branco entre um bloco `if` e seu respectivo `else`, ou entre um bloco `try` e seu respectivo `catch`.
+
+### Agrupamento de variáveis
+
+Agrupe declarações de variáveis de acordo com o tipo de declaração.
+
+- Mantenha variáveis declaradas com `const` próximas umas das outras.
+- Mantenha variáveis declaradas com `let` próximas umas das outras.
+- Sempre que possível, posicione as declarações `const` antes das declarações `let`.
+- Utilize uma linha em branco para separar os grupos de `const` e `let`.
+- Preserve a ordem necessária quando uma declaração depender de outra variável.
+- Não reorganize declarações quando isso alterar o comportamento do código.
+
+Exemplo correto:
+
+```js
+const NOME = 'Fulano';
+const SOBRENOME = 'Siclano';
+
+let idade = 25;
+let peso = 80;
+```
+
+Exemplo incorreto:
+
+```js
+const NOME = 'Fulano';
+let idade = 25;
+const SOBRENOME = 'Siclano';
+let peso = 80;
+```
+
+### Separação de funções
+
+Todas as funções devem ser separadas por uma linha em branco, independentemente de serem funções tradicionais, arrow functions, funções assíncronas ou métodos.
+
+Exemplo correto:
+
+```js
+/**
+ * Retorna uma saudação personalizada para o chefe
+ * @param {string} nome - Nome do chefe
+ * @returns {string} - Saudação personalizada
+ */
+function saudacaoChefe(nome) {
+    return `Olá, chefe ${nome}!`;
+}
+
+/**
+ * Retorna uma saudação personalizada para o usuário
+ * @param {string} nome - Nome do usuário
+ * @returns {string} - Saudação personalizada
+ */
+function saudacao(nome) {
+    return `Olá, ${nome}`;
+}
+```
+
+Exemplo incorreto:
+
+```js
+function saudacaoChefe(nome) {
+    return `Olá, chefe ${nome}!`;
+}
+function saudacao(nome) {
+    return `Olá, ${nome}`;
+}
+```
+
+Quando houver comentários JSDoc, a linha em branco deverá aparecer antes do comentário de documentação da próxima função.
+
+## Legibilidade e estruturas condicionais
+
+Priorize estruturas explícitas e de fácil compreensão, evitando abreviações ou simplificações que dificultem a leitura.
+
+- Sempre utilize chaves `{}` em estruturas condicionais e laços de repetição, mesmo quando existir apenas uma instrução.
+- Evite estruturas condicionais escritas inteiramente em uma única linha.
+- Organize o conteúdo interno dos blocos utilizando a indentação de 4 espaços.
+- Prefira condições claras e expressivas em vez de expressões excessivamente compactas.
+- Evite condições aninhadas desnecessariamente quando uma abordagem mais simples puder ser utilizada.
+- Utilize nomes descritivos para facilitar a compreensão das condições e dos valores envolvidos.
+- Priorize a legibilidade em vez da redução da quantidade de linhas.
+- Evite abstrações desnecessárias que tornem o código mais difícil de compreender.
+- Preserve a funcionalidade original durante refatorações exclusivamente voltadas à formatação e organização.
+
+### Estruturas condicionais
+
+Mesmo quando uma estrutura `if` possuir apenas uma instrução, utilize chaves e distribua seu conteúdo em múltiplas linhas.
+
+Exemplo correto:
+
+```js
+if (true) {
+    return true;
+}
+```
+
+Exemplo incorreto:
+
+```js
+if (true) return true;
+```
+
+Aplique a mesma regra às estruturas `else`, `for`, `while` e demais estruturas de controle que utilizem blocos de instruções.
+
+### Clareza do código
+
+Escreva códigos que possam ser compreendidos com facilidade por desenvolvedores de diferentes níveis de experiência, incluindo desenvolvedores juniores.
+
+- Priorize soluções simples, explícitas e previsíveis.
+- Evite encadear diversas operações em uma única linha quando isso dificultar a compreensão.
+- Utilize nomes que representem claramente a finalidade de variáveis, funções e propriedades.
+- Mantenha cada função responsável por uma finalidade bem definida, sempre que possível.
+- Evite complexidade desnecessária e abstrações que não apresentem benefícios claros.
+- Utilize comentários apenas quando a intenção do código não estiver suficientemente clara.
+- Prefira uma organização visual consistente em todo o arquivo.
+- Não sacrifique a clareza do código apenas para reduzir sua quantidade de linhas.
+
+## Organização de arquivos Vue.js
+
+Em arquivos `.vue` que utilizem a Composition API com `<script setup>`, organize as declarações seguindo uma ordem padronizada.
+
+A estrutura deverá respeitar a seguinte sequência:
+
+1. **IMPORTS:** Importações de bibliotecas, componentes, utilitários e demais dependências.
+2. **PROPS:** Declaração das propriedades recebidas pelo componente.
+3. **EMITS:** Declaração dos eventos emitidos pelo componente.
+4. **COMPOSABLES:** Inicialização e utilização de composables.
+5. **CONSTANTS:** Declaração de constantes e valores fixos.
+6. **REFS:** Declaração de estados reativos utilizando `ref` ou `reactive`.
+7. **COMPUTED:** Declaração de propriedades computadas.
+8. **FUNCTIONS:** Declaração das funções e métodos do componente.
+9. **WATCHERS:** Declaração de observadores utilizando `watch` ou `watchEffect`.
+10. **MOUNTEDS:** Declaração de hooks de ciclo de vida, como `onMounted`.
+
+### Estrutura do script setup
+
+Utilize a seguinte organização como referência:
+
+```vue
+<script setup>
+/* IMPORTS */
+
+/* PROPS */
+
+/* EMITS */
+
+/* COMPOSABLES */
+
+/* CONSTANTS */
+
+/* REFS */
+
+/* COMPUTED */
+
+/* FUNCTIONS */
+
+/* WATCHERS */
+
+/* MOUNTEDS */
+</script>
+```
+
+Siga estas regras:
+
+- Respeite a ordem das seções apresentada acima.
+- Utilize os comentários de identificação exatamente como demonstrado, em letras maiúsculas.
+- Separe cada seção existente por uma linha em branco.
+- Não adicione seções vazias apenas para manter a estrutura visual.
+- Mantenha declarações relacionadas dentro de suas respectivas seções.
+- Organize as importações de maneira consistente e evite dependências não utilizadas.
+- Mantenha as funções documentadas com JSDoc, conforme as regras de comentários em funções.
+- Quando uma declaração depender de outra, preserve a ordem necessária para evitar erros de execução.
+- Não altere o comportamento do componente apenas para adequar a organização das seções.
+- Preserve a organização das tags `<template>`, `<script setup>` e `<style>` conforme os padrões existentes no projeto, quando solicitado.
+
+### Exemplo de organização
+
+```vue
+<script setup>
+/* IMPORTS */
+import {
+    ref,
+    computed,
+    onMounted,
+    watch
+} from 'vue';
+
+/* PROPS */
+const props = defineProps({
+    nome: {
+        type: String,
+        default: '',
+    },
+});
+
+/* EMITS */
+const emitir = defineEmits(['atualizar']);
+
+/* CONSTANTS */
+const MENSAGEM_PADRAO = 'Olá';
+
+/* REFS */
+const nomeAtual = ref(props.nome);
+
+/* COMPUTED */
+const saudacao = computed(() => {
+    return `${MENSAGEM_PADRAO}, ${nomeAtual.value}`;
+});
+
+/* FUNCTIONS */
+/**
+ * Atualiza o nome e emite o novo valor para o componente pai
+ * @param {string} novoNome - Novo nome informado
+ */
+function atualizarNome(novoNome) {
+    nomeAtual.value = novoNome;
+
+    emitir('atualizar', novoNome);
+}
+
+/* WATCHERS */
+watch(() => props.nome, (novoNome) => {
+    nomeAtual.value = novoNome;
+});
+
+/* MOUNTEDS */
+onMounted(() => {
+    atualizarNome(props.nome);
+});
+</script>
+```
+
+O exemplo demonstra a organização das seções utilizadas pelo componente. As seções `COMPOSABLES` e outras não utilizadas devem ser omitidas.
 
 ## Formatação de HTML
 
